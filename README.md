@@ -26,7 +26,8 @@ Formulas:
 
 
 Interesting resources and inspirations:
-- [https://blog.airtable.com/time-saving-substitution-formulas/](https://blog.airtable.com/time-saving-substitution-formulas/)
+- [7 fantastic time-saving Airtable substitution formulas](https://blog.airtable.com/time-saving-substitution-formulas/)
+- [Formula field reference](https://support.airtable.com/hc/en-us/articles/203255215)
 
 ---
 
