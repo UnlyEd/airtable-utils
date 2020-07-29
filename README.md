@@ -25,9 +25,6 @@ Formulas:
     - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 
 
-    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`
-
-
 Interesting resources and inspirations:
 - [https://blog.airtable.com/time-saving-substitution-formulas/](https://blog.airtable.com/time-saving-substitution-formulas/)
 
