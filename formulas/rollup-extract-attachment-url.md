@@ -1,0 +1,1 @@
+SUBSTITUTE(RIGHT(ARRAYJOIN(values), LEN(ARRAYJOIN(values)) - 14), ')', '')
