@@ -19,6 +19,9 @@ Formulas:
 - `has-many-selected-items`: Count the items in a multiple select or multiple collaborator field and returns whether there are more than 1 match
     - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 - `rollup-extract-attachment-url`: Extract the url from a Rollup Attachment field (rollup fields on attachment return an array, this formula returns the asset's url)
+- `rollup-ref`: Mixes both Rollup with slug to build a string using a prefix (rollup) and slugify another column
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
+- `rollup-ref-labelFR`: Identical to `rollup-ref` with hardcoded column name `labelFR` for my own convenience
 - `slug`: Slugify a string by removing all special chars to make sure it's URL-compliant and doesn't contain any non-ascii chars
     - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 - `slug-compact`: Identical to `slug`, but one-liner (for those who prefer it)
