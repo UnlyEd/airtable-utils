@@ -5,6 +5,9 @@ Airtable utilities
 
 This repo is mostly about Airtable utilities to centralise formulas and such.
 
+Interesting resources and inspirations:
+- [https://blog.airtable.com/time-saving-substitution-formulas/](https://blog.airtable.com/time-saving-substitution-formulas/)
+
 ---
 
 # License
