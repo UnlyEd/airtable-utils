@@ -5,6 +5,17 @@ Airtable utilities
 
 This repo is mostly about Airtable utilities to centralise formulas and such.
 
+Formulas:
+- `count-selected-items`: Count the items in a multiple select or multiple collaborator field
+- `count-unique-relationship-records`: Count the number of unique linked records
+- `has-many-selected-items`: Count the items in a multiple select or multiple collaborator field and returns whether there are more than 1 match
+- `rollup-extract-attachment-url`: Extract the url from a Rollup Attachment field (rollup fields on attachment return an array, this formula returns the asset's url)
+- `slug`: Slugify a string by removing all special chars to make sure it's URL-compliant and doesn't contain any non-ascii chars
+- `slug-compact`: Identical to `slug`, but one-liner (for those who prefer it)
+
+
+
+
 Interesting resources and inspirations:
 - [https://blog.airtable.com/time-saving-substitution-formulas/](https://blog.airtable.com/time-saving-substitution-formulas/)
 
