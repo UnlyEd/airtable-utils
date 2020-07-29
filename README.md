@@ -7,13 +7,25 @@ This repo is mostly about Airtable utilities to centralise formulas and such.
 
 Formulas:
 - `count-selected-items`: Count the items in a multiple select or multiple collaborator field
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 - `count-unique-relationship-records`: Count the number of unique linked records
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
+- `find-word-at-position`: Find any word based on its position
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
+    - `TODO_REPLACE_WITH_DESIRED_POSITION`: Position you're seeking (integer)
+- `has-duplicated-text`: Checks whether text field contains duplicated text value 
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
+    - `TODO_REPLACE_WITH_DUPLICATED_TEXT_TO_FIND`: Text you want to check for duplicates (string)
 - `has-many-selected-items`: Count the items in a multiple select or multiple collaborator field and returns whether there are more than 1 match
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 - `rollup-extract-attachment-url`: Extract the url from a Rollup Attachment field (rollup fields on attachment return an array, this formula returns the asset's url)
 - `slug`: Slugify a string by removing all special chars to make sure it's URL-compliant and doesn't contain any non-ascii chars
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 - `slug-compact`: Identical to `slug`, but one-liner (for those who prefer it)
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 
 
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`
 
 
 Interesting resources and inspirations:
