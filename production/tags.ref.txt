@@ -1,4 +1,4 @@
-values & "-" &
+customerOwnerRef & "-" &
 SUBSTITUTE(
 SUBSTITUTE(
 SUBSTITUTE(
@@ -92,7 +92,7 @@ SUBSTITUTE(
 SUBSTITUTE(
 SUBSTITUTE(
 SUBSTITUTE(
-TRIM(LOWER(labelFR)),
+TRIM(LOWER({entity} & '-' & IF(LEN({labelFR}) > 0, {labelFR}, {labelEN}))),
 "à", "a"),
 "á", "a"),
 "â", "a"),
@@ -186,4 +186,3 @@ TRIM(LOWER(labelFR)),
 "----", ""),
 "—", ""),
 "–", "")
-

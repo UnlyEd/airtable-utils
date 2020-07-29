@@ -1,0 +1,189 @@
+values & "-" &
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+TRIM(LOWER({TODO_REPLACE_WITH_YOUR_COLUMN_NAME})),
+"à", "a"),
+"á", "a"),
+"â", "a"),
+"ä", "a"),
+"æ", "a"),
+"ã", "a"),
+"å", "a"),
+"ā", "a"),
+"æ", "ae"),
+"ç", "c"),
+"ć", "c"),
+"č", "c"),
+"è", "e"),
+"é", "e"),
+"ê", "e"),
+"ë", "e"),
+"ē", "e"),
+"ė", "e"),
+"ę", "e"),
+"î", "i"),
+"ï", "i"),
+"í", "i"),
+"ī", "i"),
+"į", "i"),
+"ì", "i"),
+"ł", "l"),
+"ñ", "n"),
+"ń", "n"),
+"ô", "o"),
+"ö", "o"),
+"ò", "o"),
+"ó", "o"),
+"œ", "o"),
+"ø", "o"),
+"ō", "o"),
+"õ", "o"),
+"ß", "s"),
+"ś", "s"),
+"š", "s"),
+"û", "u"),
+"ü", "u"),
+"ù", "u"),
+"ú", "u"),
+"ū", "u"),
+"ÿ", "y"),
+"ž", "z"),
+"ź", "z"),
+"ż", "z"),
+" ", "-"),
+"!", ""),
+".", ""),
+"/", ""),
+"”", ""),
+"#", ""),
+"$", ""),
+"%", ""),
+"&", ""),
+"’", ""),
+"(", ""),
+")", ""),
+"*", ""),
+"+", ""),
+",", ""),
+":", ""),
+";", ""),
+"<", ""),
+"=", ""),
+">", ""),
+"?", ""),
+"@", ""),
+"[", ""),
+"\\", ""),
+"]", ""),
+"^", ""),
+"_", ""),
+"`", ""),
+"{", ""),
+"|", ""),
+"}", ""),
+"~", ""),
+"«", ""),
+"»", ""),
+"€", ""),
+"„", ""),
+"“", ""),
+"---------", ""),
+"--------", ""),
+"-------", ""),
+"------", ""),
+"-----", ""),
+"----", ""),
+"—", ""),
+"–", "")
+
