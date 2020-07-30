@@ -1,1 +1,1 @@
-SUBSTITUTE(RIGHT(ARRAYJOIN(values), LEN(ARRAYJOIN(values)) - 14), ')', '')
+SUBSTITUTE(RIGHT(ARRAYJOIN(values), LEN(ARRAYJOIN(values)) - FIND('(', ARRAYJOIN(values))), ')', '')
