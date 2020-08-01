@@ -1,0 +1,4 @@
+IF(OR({firstName}=BLANK(),{lastName}=BLANK()),
+{lastName} & {firstName},
+{lastName} & ' ' & {firstName}
+)

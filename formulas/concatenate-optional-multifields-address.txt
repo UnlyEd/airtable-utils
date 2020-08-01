@@ -1,0 +1,4 @@
+Building & IF(AND(Building, OR(City, State, Country)), ", ")
+& City & IF(AND(City, OR(State, Country)), ", ")
+& State & IF(AND(State, Country), ", ")
+& Country
