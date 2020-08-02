@@ -1,0 +1,1 @@
+REPLACE({Email},1,FIND("~",SUBSTITUTE({Email},"@","~",LEN({Email}) - LEN(SUBSTITUTE({Email},"@","")))),"")
