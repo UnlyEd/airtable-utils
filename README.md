@@ -52,6 +52,7 @@ Those are internal production-level use-cases used on our Airtable.
 
 Interesting resources and inspirations:
 - [7 fantastic time-saving Airtable substitution formulas](https://blog.airtable.com/time-saving-substitution-formulas/)
+- [The top 10 time-saving Airtable date formulas](https://blog.airtable.com/the-top-10-time-saving-airtable-date-formulas/)
 - [Formula field reference](https://support.airtable.com/hc/en-us/articles/203255215)
 
 ---
