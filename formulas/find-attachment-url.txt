@@ -1,1 +1,1 @@
-RIGHT(LEFT({logoFR}, LEN({logoFR}) - 1), LEN(LEFT({logoFR}, LEN({logoFR}) - 1)) - SEARCH("https://", {logoFR}) + 1)
+SUBSTITUTE(SUBSTITUTE(RIGHT(asset, LEN(asset) - FIND('(', asset) + 1), '(', ''), ')', '')
