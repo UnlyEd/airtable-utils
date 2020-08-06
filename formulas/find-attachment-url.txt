@@ -1,0 +1,1 @@
+RIGHT(LEFT({logoFR}, LEN({logoFR}) - 1), LEN(LEFT({logoFR}, LEN({logoFR}) - 1)) - SEARCH("https://", {logoFR}) + 1)
