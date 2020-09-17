@@ -1,0 +1,1 @@
+IF(LEN(ARRAYJOIN(values)) = 0, 0, LEN(CONCATENATE(",", ARRAYJOIN(values))) - LEN(SUBSTITUTE(ARRAYJOIN(values), ",", "")))
