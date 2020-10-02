@@ -1,0 +1,12 @@
+'https://quickchart.io/chart?bkg=transparent&height=100&width=479&c=' &
+ENCODE_URL_COMPONENT('{"type":"horizontalBar","data":{"datasets":[{"label":"Completion %","data":[' & {TODO_REPLACE_WITH_YOUR_COLUMN_NAME} & '],"fill":false,"backgroundColor":["rgba(255,68,255,0.2)","rgba(255,159,64,0.2)"],"borderColor":["rgb(255,99,132)"],"borderWidth":1}]},"options":{"scales":{"xAxes":[{"ticks":{"beginAtZero":true,suggestedMax:100}}]}}}')
+
+---
+
+- In the above example, `ENCODE_URL_COMPONENT` is meant to be a number from 0 to 100.
+- The trick is to use `ENCODE_URL_COMPONENT` on the `chart` data only (`c`).
+- You can use as many variables you want.
+- You only need to call `ENCODE_URL_COMPONENT` once, because variables are resolved first.
+- Make sure to use proper `'` and `"` or they won't be transformed by `ENCODE_URL_COMPONENT`.
+  - Typically, copying them from Slack, Word or other external software might convert them to "kind-of-quotes".
+  - Such mistakes usually yield `Chart error: Invalid or unexpected token` error.
