@@ -42,12 +42,6 @@ Those are more-or-less generic examples meant to be re-used by anyone.
 - `rollup-ref-labelFR`: Identical to `rollup-ref` with hardcoded column name `labelFR` for my own convenience
 - `select-labelFR-or-labelEN`: Shows how to use either `labelFR` or `labelEN` based on whether the first one is empty
 
-## Production
-
-Those are internal production-level use-cases used on our Airtable.
-
-- `table.field`
-
 ## Resources
 
 Interesting resources and inspirations:
