@@ -1,1 +1,63 @@
-SUBSTITUTE(SUBSTITUTE(RIGHT(asset, LEN(asset) - FIND('(', asset) + 1), '(', ''), ')', '')
+IF(
+  FIND(
+    ' ',
+    SUBSTITUTE(
+      SUBSTITUTE(
+        RIGHT(
+          {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME},
+          LEN({TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) - FIND('(', {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) + 1
+        ),
+      '(',
+      ''),
+    ')',
+    '')
+  ) = 0,
+  SUBSTITUTE(
+    SUBSTITUTE(
+      RIGHT(
+        {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME},
+        LEN({TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) - FIND('(', {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) + 1
+      ),
+    '(',
+    ''),
+  ')',
+  ''),
+  RIGHT(
+    SUBSTITUTE(
+      SUBSTITUTE(
+        RIGHT(
+          {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME},
+          LEN({TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) - FIND('(', {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) + 1
+        ),
+      '(',
+      ''),
+    ')',
+    ''),
+    LEN(
+      SUBSTITUTE(
+        SUBSTITUTE(
+          RIGHT(
+            {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME},
+            LEN({TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) - FIND('(', {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) + 1
+          ),
+        '(',
+        ''),
+      ')',
+      '')
+    )
+    -
+    FIND(
+      ' ',
+      SUBSTITUTE(
+        SUBSTITUTE(
+          RIGHT(
+            {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME},
+            LEN({TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) - FIND('(', {TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME}) + 1
+          ),
+        '(',
+        ''),
+      ')',
+      '')
+    )
+  )
+)

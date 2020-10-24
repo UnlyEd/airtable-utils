@@ -18,6 +18,9 @@ Those are generic formulas meant to be re-used by anyone.
 - `count-unique-relationship-records`: Count the number of unique linked records
     - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 - `find-attachment-filename`: Find the filename from an Attachment field (not its url)
+- `find-attachment-url`: Find the url of an Attachment field
+    - `TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME`: Attachment column name you want to process (string)
+    - Updated on 2020 October 24 to handle filenames that contains parenthesis a bit better
 - `find-word-at-position`: Find any word based on its position
     - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
     - `TODO_REPLACE_WITH_DESIRED_POSITION`: Position you're seeking (integer)
