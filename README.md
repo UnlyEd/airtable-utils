@@ -5,6 +5,12 @@ Airtable utilities
 
 This repo is mostly about Airtable utilities to centralise formulas and such.
 
+## Scripts (automations)
+
+Those are generic scripts meant to be re-used by anyone.
+
+- `vLookup3d`: This script can be used to resolve a value from a "range" table, based on a value in a "source" table and update a field in the "destination" table.
+
 ## Formulas:
 
 Those are generic formulas meant to be re-used by anyone.
