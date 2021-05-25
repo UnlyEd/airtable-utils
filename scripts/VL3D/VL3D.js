@@ -1,6 +1,8 @@
 /**
  * This script can be used to resolve a value from a "range" table, based on a value in a "source" table and update a field in the "destination" table.
  *
+ * TODO You should adapt this script to fit your own use case, by changing the "Configuration" section below.
+ *
  * This script is similar to an Excel "VLOOKUP" function.
  * It is slightly different from the traditional VLOOKUP, because it can use up to 3 different tables (3-dimensions), instead of 2.
  * That's why we've named it "vLookup3d".
@@ -11,6 +13,8 @@
  *
  * @see https://support.microsoft.com/en-us/office/vlookup-function-0bbc8083-26fe-4963-8ab8-93a18ad188a1 Video example of Excel VLOOKUP
  */
+
+// ------------------------------------------------ Configuration -----------------------------------------------
 
 /**
  * Field names in the source table that will be used to lookup for a value.
@@ -24,22 +28,22 @@
  */
 const sourceColumnNamesToLookup = [
   {
-    inputSourceColumnName: 'foodDeprivationFrequency',
+    inputSourceColumnName: 'shareOfSelfFinancedHealthCost',
   },
 ];
 
 /**
  * Table containing the fields for which we need to resolve the associated value.
  *
- * @example The field "foodDeprivationFrequency" in "StudentBudget" table is updated and we want to find the value associated with the selected choice.
- *  In this case, "StudentBudget" is the sourceTableName.
+ * @example The field "foodDeprivationFrequency" in "StudentProfile" table is updated and we want to find the value associated with the selected choice.
+ *  In this case, "StudentProfile" is the sourceTableName.
  */
-const sourceTableName = 'StudentBudget';
+const sourceTableName = 'StudentProfile';
 
 /**
  * Table containing all choices and values for the inputSourceColumnName.
  *
- * @example The field "foodDeprivationFrequency" in "StudentBudget" table is updated and we want to find the value associated with the selected choice.
+ * @example The field "foodDeprivationFrequency" in "StudentProfile" table is updated and we want to find the value associated with the selected choice.
  *  In this case, the table "CriteriaOptions" is the table containing all possible values for the "foodDeprivationFrequency" field.
  */
 const rangeTableName = 'CriteriaOptions';
@@ -47,7 +51,7 @@ const rangeTableName = 'CriteriaOptions';
 /**
  * Column name compared to "inputSourceColumnName", used to find the associated value.
  *
- * @example The field "foodDeprivationFrequency" in "StudentBudget" table is updated and we want to find the value associated with the selected choice.
+ * @example The field "foodDeprivationFrequency" in "StudentProfile" table is updated and we want to find the value associated with the selected choice.
  *  In this case, the column "labelFR" in the table "CriteriaOptions" is the column containing all possible values for the selected "foodDeprivationFrequency" choice.
  *  We will compare all the "labelFR" values with the "foodDeprivationFrequency" choice to resolve which choice has been selected, and its associated value.
  */
@@ -59,7 +63,7 @@ const rangeColumnNameToCompare = 'labelFR';
  * This ensures we don't compare the values using a different list of options, even if several options in the range table have an identical value in the "rangeColumnNameToCompare".
  * Important, because the range table might contain different groups of values that aren't related to each other.
  */
-const rangeColumnNameToFilterBy = 'groupName';
+const rangeColumnNameToFilterBy = 'optionsGroupName';
 
 /**
  * Name of the field that contains the value associated with the selected choice.
@@ -70,22 +74,24 @@ const fieldNameValueToLookup = 'value';
 /**
  * Name of the table that will store the resolved value.
  *
- * @example The field "foodDeprivationFrequency" in "StudentBudget" table is updated and we want to find the value associated with the selected choice.
+ * @example The field "foodDeprivationFrequency" in "StudentProfile" table is updated and we want to find the value associated with the selected choice.
  *  The resolved value will be stored in the column "foodDeprivationFrequency_Score" of the "StudentScoring" table.
  */
-const destinationTableName = 'StudentScoring';
+const destinationTableName = 'StudentImportanceScoring';
 
 /**
  * Column name (in the "source" table) to use to join the source table with the destination table.
+ *
+ * If not set, won't perform a lookup.
  */
-const sourceTableJoinColumn = 'student';
+const sourceTableJoinColumn = null;
 
 /**
  * Column name (in the "destination" table) to use to join the source table with the destination table.
  *
- * If not specified, uses the same column name as the source table.
+ * Won't be used if sourceTableJoinColumn is not set.
  */
-const destinationTableJoinColumn = '' || sourceTableJoinColumn;
+const destinationTableJoinColumn = sourceTableJoinColumn;
 
 /**
  * For testing purpose, as fallback value when "inputConfig.updatedRecordIdFromSourceTable" is not set.
@@ -100,7 +106,7 @@ const destinationTableJoinColumn = '' || sourceTableJoinColumn;
  *  And do this every time.
  *  The alternative is to run the scripts through automation, but it's harder to debug that way (small editor, not possible to run code directly from editor, etc.)
  */
-const testRecordId = 'rec2GJVL3XqcFrT5c';
+const testRecordId = 'recsFucDeugbcD0aw';
 
 // ----------------------------------------------------------------------------------
 // -------------------- Script (end of script's configuration) ----------------------
@@ -135,11 +141,17 @@ const destinationTable = base.getTable(destinationTableName);
 const destinationTableRecords = await destinationTable.selectRecordsAsync();
 
 // Resolve the record that caused the automation to trigger (updated record in the source table)
-const updatedRecordFromSourceTable = sourceTableRecords.getRecord(updatedRecordIdFromSourceTable);
-console.log(`Updated record (trigger): "${updatedRecordFromSourceTable.id}" ("${updatedRecordFromSourceTable.name}")`);
+let updatedRecordFromSourceTable;
+try {
+  console.log('sourceTableRecords.records', sourceTableRecords.records);
+  updatedRecordFromSourceTable = sourceTableRecords.getRecord(updatedRecordIdFromSourceTable);
+  console.log(`Updated record (trigger): "${updatedRecordFromSourceTable.id}" ("${updatedRecordFromSourceTable.name}")`);
+} catch (e) {
+  throw new Error(`Error "${e.message}", while looking for the record with ID "${updatedRecordIdFromSourceTable}" in table "${sourceTableName}".`);
+}
 
 // Find the updated record (shape: { name: string, id: string }) where "name" is actually the "ref"
-const recordInSourceTable = updatedRecordFromSourceTable.getCellValue(sourceTableJoinColumn)[0];
+const recordInSourceTable = !sourceTableJoinColumn ? updatedRecordFromSourceTable : updatedRecordFromSourceTable.getCellValue(sourceTableJoinColumn)[0];
 const recordRefInSourceTable = recordInSourceTable.name;
 
 /**
@@ -148,10 +160,20 @@ const recordRefInSourceTable = recordInSourceTable.name;
  *
  * @example { id: string; name: string } where "name" contains the primary field value
  */
-const destinationRecordToUpdate = destinationTableRecords.records.filter((recordInDestinationTable) => {
-  const jointColumn = recordInDestinationTable.getCellValue(destinationTableJoinColumn)[0];
-  return jointColumn.name === recordRefInSourceTable;
-})[0];
+console.log('destinationTableRecords.records', destinationTableRecords.records);
+let destinationRecordToUpdate;
+
+if (sourceTableJoinColumn) {
+  destinationRecordToUpdate = destinationTableRecords.records.find((recordInDestinationTable) => {
+    const jointColumn = recordInDestinationTable.getCellValue(destinationTableJoinColumn)[0];
+    return jointColumn.name === recordRefInSourceTable;
+  });
+} else {
+  destinationRecordToUpdate = destinationTableRecords.records.find((recordInDestinationTable) => {
+    return recordInDestinationTable.name === recordRefInSourceTable;
+  });
+}
+// console.log('destinationRecordToUpdate', destinationRecordToUpdate)
 
 console.log(`Record id that will be updated in the destination table: "${destinationRecordToUpdate.id}" ("${destinationRecordToUpdate.name}")`);
 
@@ -160,7 +182,7 @@ for (let [i, fieldConfig] of sourceColumnNamesToLookup.entries()) {
   /**
    * Column name containing the choice selected by the user, for which we want to lookup the associated value.
    *
-   * @example The field "foodDeprivationFrequency" in "StudentBudget" table is updated and we want to find the value associated with the selected choice.
+   * @example The field "foodDeprivationFrequency" in "StudentProfile" table is updated and we want to find the value associated with the selected choice.
    *  In this case, "foodDeprivationFrequency" is the inputSourceColumnName.
    */
   const inputSourceColumnName = fieldConfig.inputSourceColumnName;
@@ -170,7 +192,7 @@ for (let [i, fieldConfig] of sourceColumnNamesToLookup.entries()) {
    *
    * Automatically resolved based on the "fieldNameValueToLookup".
    *
-   * @example The field "foodDeprivationFrequency" in "StudentBudget" table is updated and we want to find the value associated with the selected choice.
+   * @example The field "foodDeprivationFrequency" in "StudentProfile" table is updated and we want to find the value associated with the selected choice.
    *  The resolved value will be stored in the column "foodDeprivationFrequency_Score" of the "StudentScoring" table.
    */
   const fieldNameToUpdate = `${fieldConfig.inputSourceColumnName}_${fieldNameValueToLookup}`;
@@ -180,7 +202,7 @@ for (let [i, fieldConfig] of sourceColumnNamesToLookup.entries()) {
    *
    * If unspecified, uses the same value as the inputSourceColumnName.
    *
-   * @example When comparing the "foodDeprivationFrequency" value in "StudentBudget" table, the value might be "Never".
+   * @example When comparing the "foodDeprivationFrequency" value in "StudentProfile" table, the value might be "Never".
    *  This "Never" value might be used by other groups too, and we must limit our lookup search to the records that are within the "foodDeprivationFrequency" group.
    */
   const groupNameValueInRangeTable = fieldConfig.groupNameValueInRangeTable || inputSourceColumnName;
@@ -227,7 +249,7 @@ for (let [i, fieldConfig] of sourceColumnNamesToLookup.entries()) {
   }
 }
 
-console.log(`Patching record "${destinationRecordToUpdate.name}" in table "${destinationTableName}", with: `, destinationRecordPatch);
+console.log(`Patching record "${destinationRecordToUpdate.name}" in table "${destinationTableName}", with:`, destinationRecordPatch);
 
 // Patches the destination record, once all its properties to update have been resolved
 await destinationTable.updateRecordAsync(destinationRecordToUpdate.id, destinationRecordPatch);
