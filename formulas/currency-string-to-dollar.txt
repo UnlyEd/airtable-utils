@@ -1,0 +1,136 @@
+IF(
+    TODO_REPLACE_WITH_YOUR_COLUMN_NAME,
+    IF(
+        LEFT(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, 1) = '-',
+        '-',
+        ''
+    )
+    &
+    '$'&
+    IF(
+        FIND(
+            '.',
+            SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), '-', '')
+        ) = 1,
+        '0',
+        ''
+    )
+    &
+    IF(
+        MOD(
+            IF(
+                FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+                FIND('.', SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', '')) - 1,
+                LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))
+            ),
+            3
+        ) = 0,
+        IF(
+            FIND('.', SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', '')) != 1,
+            LEFT(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''), 3),
+            ''
+        ),
+        LEFT(
+            SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''),
+            MOD(
+                IF(
+                    FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+                    FIND('.', SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', '')) - 1,
+                    LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))
+                ),
+            3)
+        )
+    )
+    &
+    IF(
+        LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))
+        >
+        IF(FIND('.', SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', '')), 6, 3),
+        ','
+        &
+        MID(
+            SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''),
+            IF(
+                MOD(
+                    IF(
+                        FIND('.',TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+                        FIND('.',SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', '')) - 1,
+                        LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))
+                    ),
+                    3
+                ) = 0,
+                4,
+                MOD(
+                    IF(
+                        FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+                        FIND('.', SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', '')) - 1,
+                        LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))
+                    ),
+                    3
+                ) + 1
+            ),
+            3
+        ),
+        ''
+    )
+    &
+    IF(
+        IF(
+            FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+            FIND('.', SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', '')),
+            LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))
+        )
+        >
+        IF(
+            FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+            9,
+            6
+        ),
+        ','
+        &
+        MID(
+            SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''),
+            IF(
+                MOD(
+                    IF(
+                        FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+                        FIND('.', SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', '')) - 1,
+                        LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))
+                    ),
+                    3
+                ) = 0,
+                7,
+                MOD(
+                    IF(
+                        FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+                        FIND('.', SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))-1,
+                        LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, '$', ''), ',', ''), '-', ''))
+                    ),
+                    3
+                ) + 4
+            ),
+            3
+        ),
+        ''
+    )
+    &
+    IF(
+        FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME),
+        IF(
+            FIND('.', TODO_REPLACE_WITH_YOUR_COLUMN_NAME) < (LEN(TODO_REPLACE_WITH_YOUR_COLUMN_NAME) - 2),
+            '.'
+            &
+            ROUND(
+                VALUE(
+                    '.' & RIGHT(
+                        TODO_REPLACE_WITH_YOUR_COLUMN_NAME,
+                        LEN(TODO_REPLACE_WITH_YOUR_COLUMN_NAME)-FIND('.',TODO_REPLACE_WITH_YOUR_COLUMN_NAME)
+                    )
+                ) * 100,
+                0
+            ),
+            RIGHT(TODO_REPLACE_WITH_YOUR_COLUMN_NAME, 3)
+            ),
+        '.00'
+    )
+)

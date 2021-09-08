@@ -23,6 +23,16 @@ Those are generic formulas meant to be re-used by anyone.
     - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 - `count-unique-relationship-records`: Count the number of unique linked records
     - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
+- `currency-integer-to-dollar-number`
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (integer) (decimals aren't supported)
+- `currency-integer-to-dollar-string`
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (integer) (decimals aren't supported)
+- `currency-integer-to-euro-string`
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (integer) (decimals aren't supported)
+- `currency-string-to-dollar`
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
+- `currency-string-to-euro` **⚠️ (Doesn't work, WIP, use `currency-integer-to-euro-string` as an alternative)**
+    - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
 - `find-attachment-filename`: Find the filename from an Attachment field (not its url)
 - `find-attachment-url`: Find the url of an Attachment field
     - `TODO_REPLACE_WITH_YOUR_ATTACHMENT_FIELD_NAME`: Attachment column name you want to process (string)
@@ -57,6 +67,8 @@ Interesting resources and inspirations:
 - [7 fantastic time-saving Airtable substitution formulas](https://blog.airtable.com/time-saving-substitution-formulas/)
 - [The top 10 time-saving Airtable date formulas](https://blog.airtable.com/the-top-10-time-saving-airtable-date-formulas/)
 - [Formula field reference](https://support.airtable.com/hc/en-us/articles/203255215)
+- [Formatting numbers using regular expressions (currency)](https://community.airtable.com/t/formatting-numbers-using-regular-expressions/42876)
+- [Number and Currency ‘Pretty-Print’ Routines (currency)](https://community.airtable.com/t/number-and-currency-pretty-print-routines/10807)
 
 ---
 

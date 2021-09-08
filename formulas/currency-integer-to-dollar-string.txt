@@ -1,0 +1,7 @@
+'$' &
+IF(TODO_REPLACE_WITH_YOUR_COLUMN < 0, "-") &
+REGEX_REPLACE(
+    ABS(TODO_REPLACE_WITH_YOUR_COLUMN) & "",
+    REPT("(\\d{3})", (ROUND((LEN(ABS(TODO_REPLACE_WITH_YOUR_COLUMN) & "") + 1) / 3)) - 1) & "$",
+    LEFT(",$1,$2,$3,$4,$5,$6", 3 * ((ROUND((LEN(ABS(TODO_REPLACE_WITH_YOUR_COLUMN) & "") + 1) / 3)) - 1))
+)
