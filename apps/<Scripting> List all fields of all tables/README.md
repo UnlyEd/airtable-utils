@@ -1,4 +1,4 @@
-# List all fields of all tables <Scripting>
+# <Scripting> List all fields of all tables
 
 List all tables and all fields of the current base.
 

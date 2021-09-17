@@ -7,7 +7,7 @@ This repo is mostly about Airtable utilities to centralise formulas and such.
 
 ## Apps (blocks)
 
-- `List all fields of all tables <Scripting>`: List all tables and all fields of the current base. (recommended for all your bases, really useful!)
+- `<Scripting> List all fields of all tables`: List all tables and all fields of the current base. (recommended for all your bases, really useful!)
 
 ## Scripts (automations)
 
