@@ -12,7 +12,7 @@ IF(
 )
 
 Documentation:
-This formula checks if the structure of TODO_REPLACE_WITH_IBAN is correct (each country has its own specification).
+This formula checks if the structure of TODO_REPLACE_WITH_IBAN is a valid IBAN structure (each country has its own specification).
 It only considers countries that are within the SEPA area.
 
 Specifications:
