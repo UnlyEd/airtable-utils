@@ -49,9 +49,9 @@ Those are generic formulas meant to be re-used by anyone.
     - `TODO_REPLACE_WITH_DUPLICATED_TEXT_TO_FIND`: Text you want to check for duplicates (string)
 - `has-many-selected-items`: Count the items in a multiple select or multiple collaborator field and returns whether there are more than 1 match
     - `TODO_REPLACE_WITH_YOUR_COLUMN_NAME`: Column name you want to process (string)
-- `is-bank-SEPA-IBAN-valid`: This formula checks if the structure of TODO_REPLACE_WITH_IBAN is correct (each country has its own specification). It only considers countries that are within the SEPA area.
+- `is-bank-SEPA-IBAN-structure-valid`: This formula checks if the structure of TODO_REPLACE_WITH_IBAN is correct (each country has its own specification). It only considers countries that are within the SEPA area.
     - `TODO_REPLACE_WITH_IBAN`: Column name containing the IBAN value (string)
-- `is-bank-IBAN-valid`: This formula checks if the structure of TODO_REPLACE_WITH_IBAN is correct (each country has its own specification).
+- `is-bank-IBAN-structure-valid`: This formula checks if the structure of TODO_REPLACE_WITH_IBAN is correct (each country has its own specification).
     - `TODO_REPLACE_WITH_IBAN`: Column name containing the IBAN value (string)
 - `rollup-extract-attachment-url`: Extract the url from a Rollup Attachment field (rollup fields on attachment return an array, this formula returns the asset's url)
 - `slug`: Slugify a string by removing all special chars to make sure it's URL-compliant and doesn't contain any non-ascii chars
