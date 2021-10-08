@@ -1,0 +1,28 @@
+IF(
+  LEN(TODO_REPLACE_WITH_IBAN) > 0,
+  IF(
+    REGEX_MATCH(
+      SUBSTITUTE(TODO_REPLACE_WITH_IBAN, ' ', ''),
+      '^(?:((?:IT|SM)\d{2}[A-Z]{1}\d{22})|(NL\d{2}[A-Z]{4}\d{10})|(LV\d{2}[A-Z]{4}\d{13})|((?:BG|GB|IE)\d{2}[A-Z]{4}\d{14})|(GI\d{2}[A-Z]{4}\d{15})|(RO\d{2}[A-Z]{4}\d{16})|(MT\d{2}[A-Z]{4}\d{23})|(NO\d{13})|((?:DK|FI)\d{16})|((?:SI)\d{17})|((?:AT|EE|LU|LT)\d{18})|((?:HR|LI|CH)\d{19})|((?:DE|VA)\d{20})|((?:AD|CZ|ES|MD|SK|SE)\d{22})|(PT\d{23})|((?:IS)\d{24})|((?:BE)\d{14})|((?:FR|MC|GR)\d{25})|((?:PL|HU|CY)\d{26}))$'
+    ),
+    1,
+    -1
+  ),
+  0
+)
+
+Documentation:
+This formula checks if the structure of TODO_REPLACE_WITH_IBAN is correct (each country has its own specification).
+It only considers countries that are within the SEPA area.
+
+Specifications:
+- https://www.iban.com/structure
+- https://docs.google.com/spreadsheets/d/1376mu58jQ2P5jGX7tIXGrFfwgfo0RHO7RBRSpKcViIs/edit?usp=sharing Google Sheet based on the above data structure, easier to work with
+
+Outputs:
+- 1: Has a valid SEPA IBAN structure
+- 0: Is empty
+- -1: Has an invalid SEPA IBAN structure
+
+
+
