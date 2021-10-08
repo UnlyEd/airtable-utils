@@ -1,0 +1,42 @@
+IF(
+  LEN(TODO_REPLACE_WITH_IBAN) > 0,
+  IF(
+    REGEX_MATCH(
+      SUBSTITUTE(TODO_REPLACE_WITH_IBAN, ' ', ''),
+      '^(?:((?:IT|SM)\d{2}[A-Z]{1}\d{22})|(NL\d{2}[A-Z]{4}\d{10})|(LV\d{2}[A-Z]{4}\d{13})|((?:BG|GB|IE)\d{2}[A-Z]{4}\d{14})|(GI\d{2}[A-Z]{4}\d{15})|(RO\d{2}[A-Z]{4}\d{16})|(MT\d{2}[A-Z]{4}\d{23})|(NO\d{13})|((?:DK|FI)\d{16})|((?:SI)\d{17})|((?:AT|EE|LU|LT)\d{18})|((?:HR|LI|CH)\d{19})|((?:DE|VA)\d{20})|((?:AD|CZ|ES|MD|SK|SE)\d{22})|(PT\d{23})|((?:IS)\d{24})|((?:BE)\d{14})|((?:FR|MC|GR)\d{25})|((?:PL|HU|CY)\d{26}))$'
+    ),
+    IF(
+      MOD(
+        VALUE(
+          SUBSTITUTE(
+            SUBSTITUTE(
+              SUBSTITUTE(
+                SUBSTITUTE(
+                  SUBSTITUTE(
+                   SUBSTITUTE(
+                     SUBSTITUTE(
+                        UPPER(RIGHT(SUBSTITUTE(TODO_REPLACE_WITH_IBAN, ' ', ''), LEN(SUBSTITUTE(TODO_REPLACE_WITH_IBAN, ' ', '')) - 4) & LEFT(SUBSTITUTE(TODO_REPLACE_WITH_IBAN, ' ', ''), 4)),
+                      "A", "10"),
+                    "B", "11"),
+                  "C", "12"),
+                "D", "13"),
+              "E", "14"),
+            "F", "15"),
+          "R", "27")
+        & ''),
+      97
+      ) = 1,
+      1,
+      -2
+    ),
+    -1
+  ),
+  0
+)
+
+Documentation:
+This formula was an attempt to use an Airtable formula to check if an IBAN is correct.
+To do so, the IBAN needs to be converted into a number, and this conversion isn't supported by Airtable at this time.
+The number to convert is simply too big for airtable to handle.
+
+Running `VALUE('30006000011234567890189152776')` return 3, instead of returning a number `30006000011234567890189152776`.
