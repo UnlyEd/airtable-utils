@@ -24,5 +24,6 @@ Outputs:
 - 0: Is empty
 - -1: Has an invalid SEPA IBAN structure
 
-
+Testing:
+https://regex101.com/r/oLRltj/1/
 
