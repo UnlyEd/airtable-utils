@@ -92,7 +92,9 @@ SUBSTITUTE(
 SUBSTITUTE(
 SUBSTITUTE(
 SUBSTITUTE(
-TRIM(LOWER({TODO_REPLACE_WITH_YOUR_COLUMN_NAME})),
+SUBSTITUTE(
+SUBSTITUTE(
+TRIM(LOWER(TODO_REPLACE_WITH_YOUR_COLUMN_NAME)),
 "à", "a"),
 "á", "a"),
 "â", "a"),
@@ -146,6 +148,7 @@ TRIM(LOWER({TODO_REPLACE_WITH_YOUR_COLUMN_NAME})),
 ".", ""),
 "/", ""),
 "”", ""),
+"'", ""),
 "#", ""),
 "$", ""),
 "%", ""),
@@ -178,12 +181,13 @@ TRIM(LOWER({TODO_REPLACE_WITH_YOUR_COLUMN_NAME})),
 "€", ""),
 "„", ""),
 "“", ""),
-"---------", ""),
-"--------", ""),
-"-------", ""),
-"------", ""),
-"-----", ""),
-"----", ""),
-"—", ""),
-"–", "")
+"\"", ""),
+"---------", "-"),
+"--------", "-"),
+"-------", "-"),
+"------", "-"),
+"-----", "-"),
+"----", "-"),
+"---", "-"),
+"--", "-")
 
