@@ -19,6 +19,7 @@ Those are generic scripts meant to be re-used by anyone.
 
 Those are generic formulas meant to be re-used by anyone.
 
+- `attachments-count`: Count the number of attachments in an Attachment field
 - `count-selected-items`: Count the items in a multiple select or multiple collaborator field
     - `TODO_REPLACE_WITH_YOUR_STRING_PREFIX`: Prefix (string)
     - `TODO_REPLACE_WITH_YOUR_ROLLUP_FIELD`: Rollup field to use (string)
