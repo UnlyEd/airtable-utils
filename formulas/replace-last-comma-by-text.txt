@@ -1,0 +1,1 @@
+IF({Contacts Count} > 1, REGEX_REPLACE(ARRAYJOIN(values, ', '),'(.*),', ' $1 and'), values)
