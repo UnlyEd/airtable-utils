@@ -1,0 +1,8 @@
+IF(
+  AND(
+    LEN(TODO_REPLACE_WITH_YOUR_COLUMN & '') > 0,
+    FIND('https://dl.airtable.com/.attachments', TODO_REPLACE_WITH_YOUR_COLUMN) > 0
+  ),
+  TRUE(),
+  FALSE()
+)
