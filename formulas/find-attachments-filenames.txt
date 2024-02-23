@@ -1,0 +1,5 @@
+SUBSTITUTE(
+    SUBSTITUTE(
+        REGEX_REPLACE({TODO_REPLACE_WITH_YOUR_ATTACHMENT_COLUMN}, 'https?:\\/\\/[^ ,]+', ''),
+    ' (,', ','),
+' (', '')
