@@ -1,0 +1,24 @@
+IF(value < 0, "-") &
+IF(
+  FLOOR(ABS(value)) < 1000,
+  FLOOR(ABS(value)) & "",
+  IF(
+    FLOOR(ABS(value)) < 1000000,
+    LEFT(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 3) & " " & RIGHT(FLOOR(ABS(value)) & "", 3),
+    IF(
+      FLOOR(ABS(value)) < 1000000000,
+      LEFT(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 6) & " " & MID(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 5, 3) & " " & RIGHT(FLOOR(ABS(value)) & "", 3),
+      IF(
+        FLOOR(ABS(value)) < 1000000000000,
+        LEFT(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 9) & " " & MID(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 8, 3) & " " & MID(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 5, 3) & " " & RIGHT(FLOOR(ABS(value)) & "", 3),
+        LEFT(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 12) & " " & MID(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 11, 3) & " " & MID(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 8, 3) & " " & MID(FLOOR(ABS(value)) & "", LEN(FLOOR(ABS(value)) & "") - 5, 3) & " " & RIGHT(FLOOR(ABS(value)) & "", 3)
+      )
+    )
+  )
+) &
+IF(
+  FIND(".", ABS(value) & ""),
+  "," & MID(ABS(value) & "", FIND(".", ABS(value) & "") + 1, 7),
+  ",00"
+) &
+" €"
