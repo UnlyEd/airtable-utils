@@ -5,6 +5,8 @@ Airtable utilities
 
 This repo is mostly about Airtable utilities to centralise formulas and such.
 
+> Some of the formulas showed here are being showcases in a [public Airtable base](https://airtable.com/appAAL9KRV1gWAue5/shrNoU3XYE1Hu5NoU).
+
 ## Apps (blocks)
 
 - `<Scripting> List all fields of all tables`: List all tables and all fields of the current base. (recommended for all your bases, really useful!)
