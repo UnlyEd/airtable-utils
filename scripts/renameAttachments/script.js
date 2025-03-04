@@ -52,6 +52,7 @@ if (recordId) {
         let newName = attachments.length > 1
           ? `${newFileName} (${i + 1})${getFileExtension(attachment.filename)}`
           : `${newFileName}${getFileExtension(attachment.filename)}`;
+        newName = newName?.replace('pdf.pdf', '.pdf'); // Avoid duplicating the extension
 
         // Add the renamed attachment to the updated list
         updatedAttachments.push({
